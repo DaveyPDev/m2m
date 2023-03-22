@@ -1,0 +1,138 @@
+In [1]: %run app.py
+
+In [2]: get_directory()
+2023-03-22 14:37:19,433 INFO sqlalchemy.engine.base.Engine select version()
+2023-03-22 14:37:19,433 INFO sqlalchemy.engine.base.Engine {}
+2023-03-22 14:37:19,434 INFO sqlalchemy.engine.base.Engine select current_schema()
+2023-03-22 14:37:19,434 INFO sqlalchemy.engine.base.Engine {}
+2023-03-22 14:37:19,435 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2023-03-22 14:37:19,435 INFO sqlalchemy.engine.base.Engine {}
+2023-03-22 14:37:19,435 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2023-03-22 14:37:19,435 INFO sqlalchemy.engine.base.Engine {}
+2023-03-22 14:37:19,435 INFO sqlalchemy.engine.base.Engine show standard_conforming_strings
+2023-03-22 14:37:19,435 INFO sqlalchemy.engine.base.Engine {}
+2023-03-22 14:37:19,436 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+2023-03-22 14:37:19,436 INFO sqlalchemy.engine.base.Engine SELECT employees.id AS employees_id, employees.name AS employees_name, employees.state AS employees_state, employees.dept_code AS employees_dept_code 
+FROM employees
+2023-03-22 14:37:19,436 INFO sqlalchemy.engine.base.Engine {}
+---------------------------------------------------------------------------
+UndefinedTable                            Traceback (most recent call last)
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py in _execute_context(self, dialect, constructor, statement, parameters, *args)
+   1245                     self.dialect.do_execute(
+-> 1246                         cursor, statement, parameters, context
+   1247                     )
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py in do_execute(self, cursor, statement, parameters, context)
+    587     def do_execute(self, cursor, statement, parameters, context=None):
+--> 588         cursor.execute(statement, parameters)
+    589 
+
+UndefinedTable: relation "employees" does not exist
+LINE 2: FROM employees
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+ProgrammingError                          Traceback (most recent call last)
+<ipython-input-2-c35efec63761> in <module>
+----> 1 get_directory()
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/models.py in get_directory()
+     40 
+     41 def get_directory():
+---> 42     all_emps = Employee.query.all()
+     43 
+     44     for emp in all_emps:
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py in all(self)
+   3231                 :ref:`faq_query_deduplicating`
+   3232         """
+-> 3233         return list(self)
+   3234 
+   3235     @_generative(_no_clauseelement_condition)
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py in __iter__(self)
+   3387         if self._autoflush and not self._populate_existing:
+   3388             self.session._autoflush()
+-> 3389         return self._execute_and_instances(context)
+   3390 
+   3391     def __str__(self):
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py in _execute_and_instances(self, querycontext)
+   3412         )
+   3413 
+-> 3414         result = conn.execute(querycontext.statement, self._params)
+   3415         return loading.instances(querycontext.query, result, querycontext)
+   3416 
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py in execute(self, object_, *multiparams, **params)
+    980             raise exc.ObjectNotExecutableError(object_)
+    981         else:
+--> 982             return meth(self, multiparams, params)
+    983 
+    984     def _execute_function(self, func, multiparams, params):
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py in _execute_on_connection(self, connection, multiparams, params)
+    291     def _execute_on_connection(self, connection, multiparams, params):
+    292         if self.supports_execution:
+--> 293             return connection._execute_clauseelement(self, multiparams, params)
+    294         else:
+    295             raise exc.ObjectNotExecutableError(self)
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py in _execute_clauseelement(self, elem, multiparams, params)
+   1099             distilled_params,
+   1100             compiled_sql,
+-> 1101             distilled_params,
+   1102         )
+   1103         if self._has_events or self.engine._has_events:
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py in _execute_context(self, dialect, constructor, statement, parameters, *args)
+   1248         except BaseException as e:
+   1249             self._handle_dbapi_exception(
+-> 1250                 e, statement, parameters, cursor, context
+   1251             )
+   1252 
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py in _handle_dbapi_exception(self, e, statement, parameters, cursor, context)
+   1474                 util.raise_from_cause(newraise, exc_info)
+   1475             elif should_wrap:
+-> 1476                 util.raise_from_cause(sqlalchemy_exception, exc_info)
+   1477             else:
+   1478                 util.reraise(*exc_info)
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py in raise_from_cause(exception, exc_info)
+    396     exc_type, exc_value, exc_tb = exc_info
+    397     cause = exc_value if exc_value is not exception else None
+--> 398     reraise(type(exception), exception, tb=exc_tb, cause=cause)
+    399 
+    400 
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py in reraise(tp, value, tb, cause)
+    150             value.__cause__ = cause
+    151         if value.__traceback__ is not tb:
+--> 152             raise value.with_traceback(tb)
+    153         raise value
+    154 
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py in _execute_context(self, dialect, constructor, statement, parameters, *args)
+   1244                 if not evt_handled:
+   1245                     self.dialect.do_execute(
+-> 1246                         cursor, statement, parameters, context
+   1247                     )
+   1248         except BaseException as e:
+
+~/Documents/Springboard/SEC/Flask/firstflaskapp/sqla-m2m-demo/VideoDemo2/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py in do_execute(self, cursor, statement, parameters, context)
+    586 
+    587     def do_execute(self, cursor, statement, parameters, context=None):
+--> 588         cursor.execute(statement, parameters)
+    589 
+    590     def do_execute_no_params(self, cursor, statement, context=None):
+
+ProgrammingError: (psycopg2.errors.UndefinedTable) relation "employees" does not exist
+LINE 2: FROM employees
+             ^
+
+[SQL: SELECT employees.id AS employees_id, employees.name AS employees_name, employees.state AS employees_state, employees.dept_code AS employees_dept_code 
+FROM employees]
+(Background on this error at: http://sqlalche.me/e/f405)
