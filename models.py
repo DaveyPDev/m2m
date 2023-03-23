@@ -1,146 +1,54 @@
+"""Models for Blogly."""
+
+import datetime
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+DEFAULT_IMAGE_URL = "https://www.freeiconspng.com/uploads/icon-user-blue-symbol-people-person-generic--public-domain--21.png"
+
+class User(db.Model):
+    """ User """
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key = True)
+    first_name = db.Column(db.Text, nullable = False)
+    last_name = db.Column(db.Text, nullable = False)
+    image_url = db.Column(db.String, nullable = False, default= DEFAULT_IMAGE_URL)
+
+    @property
+    def full_name(self):
+        """Return full name of user."""
+
+        return f"{self.first_name} {self.last_name}"
+    
+def connect_db(app):
+        """ Connect to Database """
+
+        db.app = app
+        db.init_app(app)
+
+class Post(db.Model):
+    """ Post """
+    __tablename__ = 'posts'
+
+    id = db.Column(db.Integer, primary_key = True)
+    title = db.Column(db.Text, nullable = False)
+    content = db.Column(db.Text, nullable = False)
+    created_at = db.Column(
+        db.DateTime,
+        nullable=False,
+        default=datetime.datetime.now)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+    @property
+    def friendly_date(self):
+        """ Return formated date """
+
+        return self.created_at.striftime("%a %b %-d %Y, %-I:%M %p")
 
 def connect_db(app):
+    """ Connect to database """
+
     db.app = app
     db.init_app(app)
-
-# MODELS GO BELOW!
-
-class Department(db.Model):
-    """ Department Model """
-
-    __tablename = 'departments'
-
-    dept_code = db.Column(db.Text, primary_key=True)
-    dept_name = db.Column(db.Text, nullable=False, unique=True)
-    phone = db.Column(db.Text)
-
-
-    def __repr__(self):
-        return f"<Department {self.dept_code} {self.dept_name}"
- 
-class Employee(db.Model):
-# class Department(db.Model):
-    """ Employee Model """
-
-    __tablename__ = 'employees'
-
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.Text, nullable=False, unique=True)
-    state = db.Column(db.Text, nullable=False, default='CA')
-    dept_code = db.Column(db.Text, db.ForeignKey('department.dept_code'))
-
-    dept = db.relationship('Department', backref='employees')
-
-    def __repr__(self):
-        return f"<Employee {self.dept_code} {self.dept_code}"
-
-def get_directory():
-    all_emps = Employee.query.all()
-
-    for emp in all_emps:
-        if emp.dept is not None:
-            print(emp.name, emp.dept.dept_name, emp.dept.phone )
-        else:
-            print(emp.name)
-
-    
-
-
-
-
-
-
-#     """Department Model"""
-
-#     __tablename__ = "departments"
-
-#     dept_code = db.Column(db.Text, primary_key=True)
-#     dept_name = db.Column(db.Text, nullable=False, unique=True)
-#     phone = db.Column(db.Text)
-
-#     def __repr__(self):
-#         return f"<Department {self.dept_code} {self.dept_name} {self.phone} >"
-
-
-# class Employee(db.Model):
-#     """Employee Model"""
-
-#     __tablename__ = "employees"
-
-#     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-#     name = db.Column(db.Text, nullable=False, unique=True)
-#     state = db.Column(db.Text, nullable=False, default='CA')
-#     dept_code = db.Column(db.Text, db.ForeignKey('departments.dept_code'))
-
-#     # This is the magic line!
-#     # Sets up a dept attribute on each instance of Employee.
-#     # SQLA will populate it with data from the departments table automatically!
-#     dept = db.relationship('Department', backref='employees')
-
-#     assignments = db.relationship('EmployeeProject', backref='employee')
-
-#     projects = db.relationship(
-#         'Project', secondary="employees_projects", backref="employees")
-
-#     def __repr__(self):
-#         return f"<Employee {self.name} {self.state} {self.dept_code} >"
-
-
-# class Project(db.Model):
-
-#     __tablename__ = 'projects'
-
-#     proj_code = db.Column(db.Text, primary_key=True)
-#     proj_name = db.Column(db.Text, nullable=False, unique=True)
-
-#     assignments = db.relationship('EmployeeProject', backref="project")
-
-
-# class EmployeeProject(db.Model):
-
-#     __tablename__ = 'employees_projects'
-
-#     emp_id = db.Column(db.Integer, db.ForeignKey(
-#         'employees.id'), primary_key=True)
-
-#     proj_code = db.Column(db.Text, db.ForeignKey(
-#         'projects.proj_code'), primary_key=True)
-
-#     role = db.Column(db.Text)
-
-
-# def get_directory():
-#     all_emps = Employee.query.all()
-
-#     for emp in all_emps:
-#         if emp.dept is not None:
-#             print(emp.name, emp.dept.dept_name, emp.dept.phone)
-#         else:
-#             print(emp.name)
-
-
-# def get_directory_join():
-#     directory = db.session.query(
-#         Employee.name, Department.dept_name, Department.phone).join(Department).all()
-
-#     for name, dept, phone in directory:
-#         print(name, dept, phone)
-
-
-# def get_directory_join_class():
-#     directory = db.session.query(Employee, Department).join(Department).all()
-
-#     for emp, dept in directory:
-#         print(emp.name, dept.dept_name, dept.phone)
-
-
-# def get_directory_all_join():
-#     directory = db.session.query(
-#         Employee.name, Department.dept_name, Department.phone).outerjoin(Department).all()
-
-#     for name, dept, phone in directory:
-#         print(name, dept, phone)
