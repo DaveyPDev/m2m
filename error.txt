@@ -1,77 +1,52 @@
-(venv) windie@Davids-MBP take3 % ipython                         
-/usr/local/lib/python3.7/site-packages/IPython/core/interactiveshell.py:965: UserWarning: Attempting to work in a virtualenv. If you encounter problems, please install IPython inside the virtualenv.
-  "Attempting to work in a virtualenv. If you encounter problems, "
-Python 3.7.13 (default, May  8 2022, 17:49:22) 
-Type 'copyright', 'credits' or 'license' for more information
-IPython 7.33.0 -- An enhanced Interactive Python. Type '?' for help.
+Local host:
 
-In [1]: %run app.py
----------------------------------------------------------------------------
-AttributeError                            Traceback (most recent call last)
-~/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take3/app.py in <module>
-      3 from flask import Flask, request, redirect, render_template, flash
-      4 from flask_debugtoolbar import DebugToolbarExtension
-----> 5 from models import db, connect_db, User, Post
-      6 
-      7 app = Flask(__name__)
+Not Found
+The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 
-~/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take3/models.py in <module>
-      4 from flask_sqlalchemy import SQLAlchemy
-      5 
-----> 6 db = SQLAlchemy()
-      7 
-      8 DEFAULT_IMAGE_URL = "https://www.freeiconspng.com/uploads/icon-user-blue-symbol-people-person-generic--public-domain--21.png"
+Terminal:
 
-~/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py in __init__(self, app, use_native_unicode, session_options, metadata, query_class, model_class, engine_options)
-    713         self.use_native_unicode = use_native_unicode
-    714         self.Query = query_class
---> 715         self.session = self.create_scoped_session(session_options)
-    716         self.Model = self.make_declarative_base(model_class, metadata)
-    717         self._engine_lock = Lock()
-
-~/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py in create_scoped_session(self, options)
-    746             options = {}
-    747 
---> 748         scopefunc = options.pop('scopefunc', _app_ctx_stack.__ident_func__)
-    749         options.setdefault('query_cls', self.Query)
-    750         return orm.scoped_session(
-
-AttributeError: '_FakeStack' object has no attribute '__ident_func__'
-
-In [2]: quit
-(venv) windie@Davids-MBP take3 % flask run
-Traceback (most recent call last):
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/bin/flask", line 8, in <module>
-    sys.exit(main())
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/cli.py", line 1050, in main
-    cli.main()
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/click/core.py", line 1055, in main
-    rv = self.invoke(ctx)
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/click/core.py", line 1657, in invoke
-    return _process_result(sub_ctx.command.invoke(sub_ctx))
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/click/core.py", line 1404, in invoke
-    return ctx.invoke(self.callback, **ctx.params)
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/click/core.py", line 760, in invoke
-    return __callback(*args, **kwargs)
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/click/decorators.py", line 84, in new_func
-    return ctx.invoke(f, obj, *args, **kwargs)
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/click/core.py", line 760, in invoke
-    return __callback(*args, **kwargs)
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/cli.py", line 911, in run_command
-    raise e from None
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/cli.py", line 897, in run_command
-    app = info.load_app()
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/cli.py", line 312, in load_app
-    app = locate_app(import_name, None, raise_if_not_found=False)
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask/cli.py", line 218, in locate_app
-    __import__(module_name)
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take3/app.py", line 5, in <module>
-    from models import db, connect_db, User, Post
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take3/models.py", line 6, in <module>
-    db = SQLAlchemy()
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py", line 715, in __init__
-    self.session = self.create_scoped_session(session_options)
-  File "/Users/windie/Documents/Springboard/SEC/Flask/firstflaskapp/Blogly/flask-blogly/take2/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py", line 748, in create_scoped_session
-    scopefunc = options.pop('scopefunc', _app_ctx_stack.__ident_func__)
-AttributeError: '_FakeStack' object has no attribute '__ident_func__'
-(venv) windie@Davids-MBP take3 % 
+(venv) windie@Davids-MacBook-Pro videodemo2 % FLASK_ENV=development flask run 
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+2023-03-25 19:53:29,889 INFO sqlalchemy.engine.base.Engine select version()
+2023-03-25 19:53:29,889 INFO sqlalchemy.engine.base.Engine {}
+2023-03-25 19:53:29,891 INFO sqlalchemy.engine.base.Engine select current_schema()
+2023-03-25 19:53:29,891 INFO sqlalchemy.engine.base.Engine {}
+2023-03-25 19:53:29,891 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2023-03-25 19:53:29,891 INFO sqlalchemy.engine.base.Engine {}
+2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine {}
+2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine show standard_conforming_strings
+2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine {}
+2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine {'name': 'departments'}
+2023-03-25 19:53:29,894 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-25 19:53:29,894 INFO sqlalchemy.engine.base.Engine {'name': 'employees'}
+2023-03-25 19:53:29,894 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-25 19:53:29,894 INFO sqlalchemy.engine.base.Engine {'name': 'projects'}
+2023-03-25 19:53:29,895 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-25 19:53:29,895 INFO sqlalchemy.engine.base.Engine {'name': 'employee_projects'}
+ * Debugger is active!
+ * Debugger PIN: 292-885-092
+2023-03-25 19:53:30,079 INFO sqlalchemy.engine.base.Engine select version()
+2023-03-25 19:53:30,079 INFO sqlalchemy.engine.base.Engine {}
+2023-03-25 19:53:30,080 INFO sqlalchemy.engine.base.Engine select current_schema()
+2023-03-25 19:53:30,080 INFO sqlalchemy.engine.base.Engine {}
+2023-03-25 19:53:30,080 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2023-03-25 19:53:30,080 INFO sqlalchemy.engine.base.Engine {}
+2023-03-25 19:53:30,081 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2023-03-25 19:53:30,081 INFO sqlalchemy.engine.base.Engine {}
+2023-03-25 19:53:30,081 INFO sqlalchemy.engine.base.Engine show standard_conforming_strings
+2023-03-25 19:53:30,081 INFO sqlalchemy.engine.base.Engine {}
+2023-03-25 19:53:30,082 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-25 19:53:30,082 INFO sqlalchemy.engine.base.Engine {'name': 'departments'}
+2023-03-25 19:53:30,083 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-25 19:53:30,083 INFO sqlalchemy.engine.base.Engine {'name': 'employees'}
+2023-03-25 19:53:30,083 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-25 19:53:30,083 INFO sqlalchemy.engine.base.Engine {'name': 'projects'}
+2023-03-25 19:53:30,084 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-25 19:53:30,084 INFO sqlalchemy.engine.base.Engine {'name': 'employee_projects'}
+127.0.0.1 - - [25/Mar/2023 19:53:34] "GET / HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2023 19:53:35] "GET / HTTP/1.1" 404 -
