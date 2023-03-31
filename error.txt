@@ -1,52 +1,44 @@
-Local host:
-
-Not Found
-The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
-
-Terminal:
-
-(venv) windie@Davids-MacBook-Pro videodemo2 % FLASK_ENV=development flask run 
+(venv) windie@Davids-MBP videodemo2 % FLASK_ENV=development flask run
  * Environment: development
  * Debug mode: on
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
  * Restarting with stat
-2023-03-25 19:53:29,889 INFO sqlalchemy.engine.base.Engine select version()
-2023-03-25 19:53:29,889 INFO sqlalchemy.engine.base.Engine {}
-2023-03-25 19:53:29,891 INFO sqlalchemy.engine.base.Engine select current_schema()
-2023-03-25 19:53:29,891 INFO sqlalchemy.engine.base.Engine {}
-2023-03-25 19:53:29,891 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
-2023-03-25 19:53:29,891 INFO sqlalchemy.engine.base.Engine {}
-2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
-2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine {}
-2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine show standard_conforming_strings
-2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine {}
-2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
-2023-03-25 19:53:29,892 INFO sqlalchemy.engine.base.Engine {'name': 'departments'}
-2023-03-25 19:53:29,894 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
-2023-03-25 19:53:29,894 INFO sqlalchemy.engine.base.Engine {'name': 'employees'}
-2023-03-25 19:53:29,894 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
-2023-03-25 19:53:29,894 INFO sqlalchemy.engine.base.Engine {'name': 'projects'}
-2023-03-25 19:53:29,895 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
-2023-03-25 19:53:29,895 INFO sqlalchemy.engine.base.Engine {'name': 'employee_projects'}
+2023-03-30 20:32:47,709 INFO sqlalchemy.engine.base.Engine select version()
+2023-03-30 20:32:47,709 INFO sqlalchemy.engine.base.Engine {}
+2023-03-30 20:32:47,710 INFO sqlalchemy.engine.base.Engine select current_schema()
+2023-03-30 20:32:47,710 INFO sqlalchemy.engine.base.Engine {}
+2023-03-30 20:32:47,710 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2023-03-30 20:32:47,710 INFO sqlalchemy.engine.base.Engine {}
+2023-03-30 20:32:47,711 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2023-03-30 20:32:47,711 INFO sqlalchemy.engine.base.Engine {}
+2023-03-30 20:32:47,711 INFO sqlalchemy.engine.base.Engine show standard_conforming_strings
+2023-03-30 20:32:47,711 INFO sqlalchemy.engine.base.Engine {}
+2023-03-30 20:32:47,711 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-30 20:32:47,711 INFO sqlalchemy.engine.base.Engine {'name': 'departments'}
+2023-03-30 20:32:47,713 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-30 20:32:47,713 INFO sqlalchemy.engine.base.Engine {'name': 'employees'}
+2023-03-30 20:32:47,713 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-30 20:32:47,713 INFO sqlalchemy.engine.base.Engine {'name': 'projects'}
+2023-03-30 20:32:47,714 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-30 20:32:47,714 INFO sqlalchemy.engine.base.Engine {'name': 'employee_projects'}
  * Debugger is active!
  * Debugger PIN: 292-885-092
-2023-03-25 19:53:30,079 INFO sqlalchemy.engine.base.Engine select version()
-2023-03-25 19:53:30,079 INFO sqlalchemy.engine.base.Engine {}
-2023-03-25 19:53:30,080 INFO sqlalchemy.engine.base.Engine select current_schema()
-2023-03-25 19:53:30,080 INFO sqlalchemy.engine.base.Engine {}
-2023-03-25 19:53:30,080 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
-2023-03-25 19:53:30,080 INFO sqlalchemy.engine.base.Engine {}
-2023-03-25 19:53:30,081 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
-2023-03-25 19:53:30,081 INFO sqlalchemy.engine.base.Engine {}
-2023-03-25 19:53:30,081 INFO sqlalchemy.engine.base.Engine show standard_conforming_strings
-2023-03-25 19:53:30,081 INFO sqlalchemy.engine.base.Engine {}
-2023-03-25 19:53:30,082 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
-2023-03-25 19:53:30,082 INFO sqlalchemy.engine.base.Engine {'name': 'departments'}
-2023-03-25 19:53:30,083 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
-2023-03-25 19:53:30,083 INFO sqlalchemy.engine.base.Engine {'name': 'employees'}
-2023-03-25 19:53:30,083 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
-2023-03-25 19:53:30,083 INFO sqlalchemy.engine.base.Engine {'name': 'projects'}
-2023-03-25 19:53:30,084 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
-2023-03-25 19:53:30,084 INFO sqlalchemy.engine.base.Engine {'name': 'employee_projects'}
-127.0.0.1 - - [25/Mar/2023 19:53:34] "GET / HTTP/1.1" 404 -
-127.0.0.1 - - [25/Mar/2023 19:53:35] "GET / HTTP/1.1" 404 -
+2023-03-30 20:32:47,879 INFO sqlalchemy.engine.base.Engine select version()
+2023-03-30 20:32:47,879 INFO sqlalchemy.engine.base.Engine {}
+2023-03-30 20:32:47,879 INFO sqlalchemy.engine.base.Engine select current_schema()
+2023-03-30 20:32:47,879 INFO sqlalchemy.engine.base.Engine {}
+2023-03-30 20:32:47,880 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2023-03-30 20:32:47,880 INFO sqlalchemy.engine.base.Engine {}
+2023-03-30 20:32:47,880 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2023-03-30 20:32:47,880 INFO sqlalchemy.engine.base.Engine {}
+2023-03-30 20:32:47,880 INFO sqlalchemy.engine.base.Engine show standard_conforming_strings
+2023-03-30 20:32:47,881 INFO sqlalchemy.engine.base.Engine {}
+2023-03-30 20:32:47,881 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-30 20:32:47,881 INFO sqlalchemy.engine.base.Engine {'name': 'departments'}
+2023-03-30 20:32:47,882 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-30 20:32:47,882 INFO sqlalchemy.engine.base.Engine {'name': 'employees'}
+2023-03-30 20:32:47,883 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-30 20:32:47,883 INFO sqlalchemy.engine.base.Engine {'name': 'projects'}
+2023-03-30 20:32:47,883 INFO sqlalchemy.engine.base.Engine select relname from pg_class c join pg_namespace n on n.oid=c.relnamespace where pg_catalog.pg_table_is_visible(c.oid) and relname=%(name)s
+2023-03-30 20:32:47,883 INFO sqlalchemy.engine.base.Engine {'name': 'employee_projects'}
+
